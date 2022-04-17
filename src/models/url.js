@@ -20,9 +20,18 @@ exports.getHash = (hash) => {
   
   return element;
 };
-
+exports.getAll = ()=>{
+    return Hashes
+}
 const searchHash = (hash) => {
-  let e = Hashes.find((element) => element.hash == hash);
+  let e = Hashes.find((element) => {
+      if(element.hash == hash){
+          element.count = element.count +1
+    return element
+
+      }}
+  
+  );
   return e;
 };
 

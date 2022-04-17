@@ -35,3 +35,15 @@ exports.getHash = (req, res) => {
     });
   }
 };
+
+// Find a url with a hash
+exports.getAllHash = (req, res) => {
+    try {
+      let data = Hash.getAll();
+      return res.send(data);
+    } catch (e) {
+      return res.status(500).send({
+        message: "Some error occurred while redirecting",
+      });
+    }
+  };

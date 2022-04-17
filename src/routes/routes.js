@@ -7,8 +7,9 @@ module.exports = routes => {
     router.post("/hash", controllers.createHash);
     // Redirect hash
     router.get("/hash/:hash", controllers.getHash);
+    // all hash
+    router.get("/hash", controllers.getAllHash);
     
-
 
     routes.use('/api', router);
   };
