@@ -1,6 +1,7 @@
 const Hash = {
   url: "",
   hash: "",
+  count:0
 };
 const Hashes = [];
 let counter = 0;
@@ -16,6 +17,7 @@ exports.getHash = (hash) => {
   if (!element) {
     return null;
   }
+  
   return element;
 };
 
@@ -50,5 +52,5 @@ function getrandom() {
 function shorturl(url) {
   let longurl = geturl(url);
   let hash = getrandom();
-  return { url: longurl, hash: hash };
+  return { url: longurl, hash: hash , count:0};
 }

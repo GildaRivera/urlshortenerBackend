@@ -14,8 +14,9 @@ exports.createHash = (req, res) => {
   // Save user in the database
   try {
     let data = Hash.addHash(hash);
-    console.log(data,"-----")
-    return res.status(200).send(`http://localhost:8080/api/hash/${data.hash}`);
+    return res
+      .status(200)
+      .send({ url: `http://localhost:8080/api/hash/${data.hash}` });
   } catch (e) {
     return res.status(500).send({
       message: "Some error occurred while creating the Hash.",
@@ -27,7 +28,7 @@ exports.createHash = (req, res) => {
 exports.getHash = (req, res) => {
   try {
     let data = Hash.getHash(req.params.hash);
-    return res.redirect(data.url)
+    return res.redirect(data.url);
   } catch (e) {
     return res.status(500).send({
       message: "Some error occurred while redirecting",
